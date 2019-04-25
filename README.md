@@ -1,5 +1,5 @@
 # virtual-betting
-W4111 web-application project
+W4111 web-application project *CURRENTLY HOSTED AT http://35.231.52.41:8111/*
 
 This repository contains the code used to develop our virtual sports betting web application. 
 

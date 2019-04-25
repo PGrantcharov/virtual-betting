@@ -84,8 +84,8 @@ UPDATE BET DISPLAY CSV FILE
 
 
 def store_betting_data():
-    lower = dt.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    upper = (dt.datetime.now() + dt.timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')
+    lower = datetime.now(timezone('US/Eastern')).strftime('%Y-%m-%d %H:%M:%S')
+    upper = (datetime.now(timezone('US/Eastern')) + dt.timedelta(days=1)).strftime('%Y-%m-%d %H:%M:%S')
     bounds = """game_time > '{l}' AND game_time < '{u}'""".format(l=lower,
                                                                   u=upper)
     statement = """
