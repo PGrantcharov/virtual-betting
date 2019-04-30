@@ -14,8 +14,11 @@ statistical insights about the game.
 
 ### Repository Overview
 `Data/` contains the historic data (new data scraped daily is not appended to these CSVs).
+
 `Packages/` contains the two primary packages used: `scraping` and `db_inserter`.
+
 `Project_Parts/` contains the database's ER diagram and SQL schema, as well as several miscellaneous documents.
+
 `Webpage/` contains the code used to construct the website (using Flask and Jinja in Python).
 
 
