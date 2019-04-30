@@ -22,9 +22,9 @@
 
   <section class="content">
     {% if bet_indicator %}
-      <header> <font size="6px">
+      <header>
         {% block games %}Betting History - Last 20 Bets{% endblock %}
-      </font></header>
+      </header>
 
       <p></p>
 
@@ -62,9 +62,7 @@
 
     {% else %}
       <div>
-        <header><font size="15px">
-          You have not placed any bets yet!
-        </font></header>
+        <header>You have not placed any bets yet!</header>
       </div>
     {% endif %}
 

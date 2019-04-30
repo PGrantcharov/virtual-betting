@@ -96,13 +96,12 @@ def homepage():
             bet_result = "Please select both a game and bet type."
         else:
             try:
-                o_id = int(context['betting_data'].iloc[int(match)][bet +
-                                                                    '_oid'])
+                o_id = int(context['betting_data'].iloc[int(match)][bet + '_oid'])
             except ValueError:
                 o_id = '-'
 
             if o_id == '-':
-                bet_result = "Match is in progress; bet is no longer available."
+                bet_result = "Bet is currently unavailable."
             else:
                 error =  valid_amount(amount=amount, session=session,
                                       conn=g.conn)

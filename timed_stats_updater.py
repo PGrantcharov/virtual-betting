@@ -64,9 +64,13 @@ def _get_new_games(last_month):
     return scraper.get_available_games()
 
 
-def _update_game(game):
-    return "UPDATE game SET game_time = '{gt}' WHERE g_id = '{g_id}';".format(gt=game.game_time,
-                                                                              g_id=game.g_id)
+def _update_game(game, val):
+    if val == 'game_time':
+        return "UPDATE game SET game_time = '{gt}' WHERE g_id = '{g_id}';".format(gt=game.game_time,
+                                                                                  g_id=game.g_id)
+    elif val == 't_id_away':
+        return "UPDATE game SET t_id_away = {tid} WHERE g_id = '{g_id}';".format(tid=game.t_id_away,
+                                                                                 g_id=game.g_id)
 
 
 def _insert_new_games(new_games, stored_games):
@@ -74,9 +78,15 @@ def _insert_new_games(new_games, stored_games):
     for idx, game in new_games.iterrows():
         match = stored_games.loc[stored_games.g_id == game.g_id]
         if len(match) == 0:
-            conn.execute(insert_to_db(table_name='game', row=game))
+            try:
+                conn.execute(insert_to_db(table_name='game', row=game))
+            except Exception:
+                logger.log("\t Error for: {}".format(game.g_id))
+
         elif pd.to_datetime(game.game_time) != match.iloc[0].game_time:
-            conn.execute(_update_game(game))
+            conn.execute(_update_game(game, 'game_time'))
+        elif pd.to_datetime(game.t_id_away) != match.iloc[0].t_id_away:
+            conn.execute(_update_game(game, 't_id_away'))
 
 
 def _remove_old_games(stored_games, new_games):

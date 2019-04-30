@@ -140,9 +140,8 @@ def get_last_five(g_id, conn):
     away_cols = [x for x in df.columns if x.startswith('away_')]
     home_cols = [x for x in df.columns if x.startswith('home_')]
     df['date'] = df.game_time.map(lambda x: dt.datetime.strftime(x, '%c'))
-    df['away_total'] = df[away_cols].sum(axis=1)
-    df['home_total'] = df[home_cols].sum(axis=1)
-
+    df['away_total'] = df[away_cols].sum(axis=1).astype(int)
+    df['home_total'] = df[home_cols].sum(axis=1).astype(int)
     return df
 
 
