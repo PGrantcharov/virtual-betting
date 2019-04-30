@@ -12,6 +12,14 @@ the game starts. Only the single best betting line from the industry's top 10 sp
 presented. Users can also click on the game page for each match-up to get a few basic
 statistical insights about the game. 
 
+### Repository Overview
+`Data/` contains the historic data (new data scraped daily is not appended to these CSVs).
+`Packages/` contains the two primary packages used: `scraping` and `db_inserter`.
+`Project_Parts/` contains the database's ER diagram and SQL schema, as well as several miscellaneous documents.
+`Webpage/` contains the code used to construct the website (using Flask and Jinja in Python).
+
+
+
 ### Screenshots
 
 ![Alt text](Screenshots/Homepage.png?raw=true "Homepage")
