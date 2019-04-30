@@ -3,3 +3,6 @@
 **/__pycache__/
 **/.ipynb_checkpoints
 **/.DBurl.txt
+
+.bask_ref_log.txt
+.odds_update.txt
